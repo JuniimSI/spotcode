@@ -26,7 +26,7 @@ Rails.application.routes.draw do
       end 
     end
   end
-
+  get "*path", to: "home#index", :constraints => lambda{|req| req.path !~ /\.(png|jpg|js|css|json)$/ }
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

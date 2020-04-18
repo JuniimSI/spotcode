@@ -1,14 +1,20 @@
-import React, {Fragment} from 'react';
+import React, { Fragment } from 'react';
 import 'react-bulma-components/dist/react-bulma-components.min.css';
-import {Button} from 'react-bulma-components';
+import Routes from './routes';
+import { BrowserRouter } from 'react-router-dom';
 import 'app.scss';
+import Menu from './components/common/menu'
 
-const App = () =>{
-    return(
+
+const App = () => {
+    return (
         <Fragment>
-            <Button color='primary'>Testando o Bulma</Button>   
+            <BrowserRouter>
+                <Menu />
+                <Routes />
+            </BrowserRouter>
         </Fragment>
-    )
+    );
 }
 
 export default App;
