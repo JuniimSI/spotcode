@@ -4,6 +4,7 @@ import logoImage from '../../assets/images/logo.png'
 import styled from 'styled-components'
 import { useLocation } from 'react-router-dom'
 import { FaUserCircle } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
  
 const ColumnsFullWidth = styled(Columns)`
@@ -43,7 +44,9 @@ const Menu = () => {
         <Container>
           <ColumnsFullWidth className='is-mobile'>
             <Columns.Column desktop={{size: 2}} mobile={{size: 5}}>
-              <img src={logoImage}/>
+              <Link to={`/`}>
+                <img src={logoImage}/>
+              </Link>
             </Columns.Column>
             <Columns.Column>
               {actionButton}

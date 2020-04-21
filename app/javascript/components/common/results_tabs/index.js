@@ -2,6 +2,7 @@ import React, { Fragment, useState, useEffect } from 'react';
 import { Columns, Tabs } from 'react-bulma-components';
 import styled, { css } from 'styled-components';
 import Album from '../../common/album';
+import Artist from '../../common/artists';
 import Musics from '../../musics';
 
 const CustomTab = styled(Tabs.Tab)`
@@ -18,6 +19,7 @@ const ResultsTabs = (props) => {
     const [active_tab, setActiveTab] = useState("albums");
 
     const [albums, setAlbums] = useState([]);
+    const [artists, setArtists] = useState([]);
 
     useEffect(() => {
         setAlbums(props.albums.map((album, key) =>
@@ -25,7 +27,14 @@ const ResultsTabs = (props) => {
                 <Album artist_name={album.artist_name} title={album.title} cover_url={album.cover_url} id={album.id} />
             </Columns.Column>
         ));
-    }, [props.albums, props.artist_name, props.songs]);
+
+        setArtists(props.artists.map((artist, key) => 
+            <Columns.Column desktop={{ size: 3 }} mobile={{ size: 6 }} key={key}>
+                <Artist name={artist.name} photo_url={artist.photo_url} id={artist.id} />
+            </Columns.Column>
+        ));
+
+    }, [props.albums, props.artist_name, props.songs, props.artists]);
 
     return (
         <Fragment>
@@ -52,8 +61,8 @@ const ResultsTabs = (props) => {
 
                 <div style={{ display: active_tab != 'artists' ? "none" : "" }}>
                     <div className="columns is-mobile is-multiline">
-                        Artists
-                </div>
+                        {artists}
+                    </div>
                 </div>
 
                 <div style={{ display: active_tab != 'songs' ? "none" : "" }}>
