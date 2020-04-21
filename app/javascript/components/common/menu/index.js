@@ -44,7 +44,7 @@ const Menu = () => {
         <Container>
           <ColumnsFullWidth className='is-mobile'>
             <Columns.Column desktop={{size: 2}} mobile={{size: 5}}>
-              <Link to={`/`}>
+              <Link to={`/discovery`}>
                 <img src={logoImage}/>
               </Link>
             </Columns.Column>
