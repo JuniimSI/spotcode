@@ -15,7 +15,6 @@ const Artists = () => {
   let { id } = useParams();
   const [artist, setArtist] = useState([]);
   const [albums, setAlbums] = useState([]);
-  const [favorite, setFavorite] = useState([]);
 
 
   async function fetchArtist() {
@@ -27,7 +26,6 @@ const Artists = () => {
                 <Album artist_name={album.artist_name} title={album.title} cover_url={album.cover_url} id={album.id} />
             </Columns.Column>
     ));
-    setFavorite(response.data['favorite']);
   }
       
   useEffect(() => {
@@ -41,7 +39,7 @@ const Artists = () => {
           <Image src={artist.photo_url} />
           <DivVSpaced>
             <Heading size={5} className='has-text-white'>{artist.name}</Heading>
-            <Favorite id={artist.id} kind='artists' favored={favorite}/>
+            <Favorite id={artist.id} kind='artists' favored={artist.favorite}/>
           </DivVSpaced>
         </Columns.Column>
       </Columns>

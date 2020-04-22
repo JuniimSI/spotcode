@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import AlbumsService from '../../services/albums';
 import { useParams } from 'react-router-dom'
 import Musics from '../musics';
+import Favorite from '../../components/common/favorite';
 
 const DivVSpaced = styled.div`
     margin-top: 20px;
@@ -13,6 +14,7 @@ const DivVSpaced = styled.div`
 const Albums = () => {
     const [album, setAlbum] = useState({});
     let { id } = useParams();
+
     async function fetchAlbum() {
         const response = await AlbumsService.show(id);
         setAlbum(response.data)
@@ -31,7 +33,8 @@ const Albums = () => {
                     <DivVSpaced>
                         <Heading size={5} className='has-text-white'>{album.title}</Heading>
                         <Heading size={6} subtitle className='has-text-white'>{album.artist_name}</Heading>
-                    </DivVSpaced>
+                        <Favorite id={album.id} kind='albums' favored={album.favorite}/>
+                        </DivVSpaced>
                 </Columns.Column>
             </Columns>
             <Musics songs={album.songs || []}/>
