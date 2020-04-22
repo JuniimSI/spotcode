@@ -1,6 +1,8 @@
 json.name @artist.name
 json.id @artist.id
 json.photo_url url_for(@artist.photo)
+json.favorite current_user.is_favorite? 'Artist', @artist.id
+
 
 json.albums @artist.albums.each do |album|
     json.id album.id

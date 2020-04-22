@@ -15,11 +15,13 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :dashboard, only: :index
       resources :categories, only: [:show, :index]
-      resources :artists, only: [:show, :index]
+      resources :artists, only: [:show, :index] do
+        concerns :favoritable, favoritable_type: 'Artist'
+      end
       resources :search, only: :index
       resources :albums, only: :show do
         resources :recently_heards, only: :create
-        
+        concerns :favoritable, favoritable_type: 'Album'
       end
       resources :favorites, only: :index
       resources :songs, only: [] do

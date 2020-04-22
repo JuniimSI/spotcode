@@ -4,8 +4,7 @@ import styled from 'styled-components';
 import ArtistsService from '../../services/artists';
 import { useParams } from 'react-router-dom';
 import Album from '../common/album';
-import Musics from '../musics';
-import Favorite from '../common/favorite';
+import Favorite from '../../components/common/favorite';
 
 const DivVSpaced = styled.div`
  margin-top: 20px;
@@ -16,6 +15,8 @@ const Artists = () => {
   let { id } = useParams();
   const [artist, setArtist] = useState([]);
   const [albums, setAlbums] = useState([]);
+  const [favorite, setFavorite] = useState([]);
+
 
   async function fetchArtist() {
     const response = await ArtistsService.show(id);
@@ -26,15 +27,12 @@ const Artists = () => {
                 <Album artist_name={album.artist_name} title={album.title} cover_url={album.cover_url} id={album.id} />
             </Columns.Column>
     ));
+    setFavorite(response.data['favorite']);
   }
-  
-  
       
   useEffect(() => {
-    console.log("useEfect");
     fetchArtist();
   }, []);
-
 
   return (
     <Fragment>
@@ -43,6 +41,7 @@ const Artists = () => {
           <Image src={artist.photo_url} />
           <DivVSpaced>
             <Heading size={5} className='has-text-white'>{artist.name}</Heading>
+            <Favorite id={artist.id} kind='artists' favored={favorite}/>
           </DivVSpaced>
         </Columns.Column>
       </Columns>

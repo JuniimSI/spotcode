@@ -6,6 +6,7 @@ const Favorite = (props) => {
 
     const [favored, setFavored] = useState(props.favored);
     let FavoredButton;
+    console.log(" ============= " + favored);
     if (favored)
         FavoredButton = <FaHeart size='25px' className='has-text-white' onClick={() => disfavor()} />
     else
