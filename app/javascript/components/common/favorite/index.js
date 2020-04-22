@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import { FaRegHeart, FaHeart } from "react-icons/fa";
 import FavoritesService from '../../../services/favorites';
 
@@ -6,11 +6,16 @@ const Favorite = (props) => {
 
     const [favored, setFavored] = useState(props.favored);
     let FavoredButton;
-    console.log(" ============= " + favored);
+    
+    useEffect(() => {
+        setFavored(favored);
+      }, [props.favorite]);
+
     if (favored)
         FavoredButton = <FaHeart size='25px' className='has-text-white' onClick={() => disfavor()} />
     else
-        FavoredButton = <FaRegHeart size='25px' className='has-text-white' onClick={() => favor()} />
+         FavoredButton = <FaRegHeart size='25px' className='has-text-white' onClick={() => favor()} />
+
 
     async function disfavor() {
         await FavoritesService.delete(props.kind, props.id);
