@@ -8,6 +8,7 @@ const NavbarWithBorder = styled(Navbar)`
   border-top-color: white !important;
   border-top-style: solid;
   border-top-width: 1px;
+  background-color: black;
 `
 const ColumnsFullWidth = styled(Columns)`
   width: 100%;
@@ -18,7 +19,7 @@ const NavbarFooter = () => {
 
     return (
         <Fragment>
-            <NavbarWithBorder fixed='bottom' color='dark'>
+            <NavbarWithBorder fixed='bottom' >
                 <Container>
                     <ColumnsFullWidth className='is-mobile is-vcentered'>
                         <Columns.Column className='has-text-centered'>

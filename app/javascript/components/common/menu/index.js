@@ -13,8 +13,16 @@ const ColumnsFullWidth = styled(Columns)`
   padding-left: 10px;
   padding-bottom: 10px;
   padding-right: 10px;
+  
 `
- 
+const NavbarWithBorder = styled(Navbar)`
+border-bottom-color: white !important;
+border-bottom-style: solid;
+border-bottom-width: 1px;
+background-color: black;
+box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+`
+
 const Menu = () => {
   let actionButton;
  
@@ -24,7 +32,7 @@ const Menu = () => {
     </a>
   }
   else {
-    actionButton = <Dropdown className='is-pulled-right is-right' color='dark' label={<FaUserCircle size="2em" />}>
+    actionButton = <Dropdown className='is-pulled-right is-right' color='black' label={<FaUserCircle size="2em" />}>
      <Dropdown.Item value="other">
        <a href='/users/edit'>
         Edit User
@@ -40,7 +48,7 @@ const Menu = () => {
  
   return (
     <Fragment>
-      <Navbar color="dark">
+      <NavbarWithBorder color="black">
         <Container>
           <ColumnsFullWidth className='is-mobile'>
             <Columns.Column desktop={{size: 2}} mobile={{size: 5}}>
@@ -53,7 +61,7 @@ const Menu = () => {
             </Columns.Column>
           </ColumnsFullWidth>
         </Container>
-      </Navbar>
+      </NavbarWithBorder>
     </Fragment>
   );
 }
