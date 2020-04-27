@@ -1,0 +1,32 @@
+
+<nav class="navbar navPreto" >
+    <a class="navbar-brand left text-white" href="/discovery">
+    <div class="inside">
+      <p class="font-weight-bold">HOME</p>        
+      </div>
+    </a>
+</nav>
+<section class="container text-center ">
+  <section class="col-md-4 offset-md-4 devise">
+
+<h2>Forgot your password?</h2>
+
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Send me reset password instructions", class: "top btn btn-dark text-sucess" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+
+  </section>
+</section>
+
+<footer class="footerPreto"></footer>

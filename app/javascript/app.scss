@@ -6,3 +6,37 @@ html, body, #root {
     height: 100%;
     background-color: $dark;
 }
+
+.navPreto{
+    padding-bottom: 20px;
+    background-color: black;
+    border-bottom-color: white !important;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+
+.footerPreto{
+    padding-top: 60px;
+    background-color: black;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+    border-top-color: white !important;
+    border-top-style: solid;
+    border-top-width: 1px;
+}
+
+.top{
+    margin-top: 15px ;
+}
+
+.left{
+    margin-left: 50px;
+}
+
+.inside{
+    margin-top: 10px;
+}

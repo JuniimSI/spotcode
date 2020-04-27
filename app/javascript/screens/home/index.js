@@ -1,8 +1,9 @@
 import React, { Fragment } from 'react';
 import { Button, Columns, Heading } from 'react-bulma-components';
-import styled from 'styled-components'
-import SectionWrapper from '../../components/common/section_wrapper'
- 
+import styled from 'styled-components';
+import SectionWrapper from '../../components/common/section_wrapper';
+import NavbarFooterHome from '../../components/common/navbar_footer_home';
+
 const MainHeading = styled(Heading)`
   margin-top: 50px;
 `
@@ -44,6 +45,7 @@ const HomeScreen = () => {
           <ButtonSubscribe className='is-success is-outlined is-large has-text-white'>CADASTRAR AGORA</ButtonSubscribe>
         </Columns.Column>
       </Columns>
+      <NavbarFooterHome></NavbarFooterHome>
     </SectionWrapper>
   );
 }
